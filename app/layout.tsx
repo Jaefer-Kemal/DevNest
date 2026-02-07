@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
+
 import "./globals.css";
+import Navbar from "@/components/navigation/navbar";
+
+import ThemeProvider from "./context/Theme";
 
 const inter = localFont({
   src: "./fonts/InterVF.ttf",
@@ -8,11 +12,16 @@ const inter = localFont({
   weight: "100 200 300 400 500 600 700 800 900",
 });
 
-
+const spaceGrotesk = localFont({
+  src: "./fonts/SpaceGroteskVF.ttf",
+  variable: "--font-space-grotesk",
+  weight: "100 200 300 400 500 600 700 800 900",
+});
 
 export const metadata: Metadata = {
   title: "DevNest",
-  description: "A community for developers to connect, share knowledge, and grow together.",
+  description:
+    "A community for developers to connect, share knowledge, and grow together.",
   icons: {
     icon: "/images/site-logo.svg",
   },
@@ -24,11 +33,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
-        className={`${inter.className} antialiased`}
+        className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Navbar />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );

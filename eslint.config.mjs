@@ -35,7 +35,6 @@ const eslintConfig = defineConfig([
       "space-before-function-paren": ["error", "never"],
       // StandardJS plugin rules
       "import/no-unresolved": "error",
-      "n/no-missing-import": "error",
       "promise/always-return": "warn",
       "promise/no-return-wrap": "error",
       "promise/param-names": "error",
