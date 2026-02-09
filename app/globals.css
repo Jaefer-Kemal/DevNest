@@ -133,7 +133,12 @@
   .background-light850_dark100 {
     @apply bg-light-850 dark:bg-dark-100;
   }
-
+  .bg-auth-dark {
+    background-image: var(--bg-auth-dark);
+  }
+  .bg-auth-light {
+    background-image: var(--bg-auth-light);
+  }
   .background-light900_dark200 {
     @apply bg-light-900 dark:bg-dark-200;
   }
@@ -493,6 +498,9 @@ code {
 .markdown pre {
   display: grid;
   width: 100%;
+}
+.bg-auth-dark {
+  background-image: var(--bg-auth-dark);
 }
 
 .markdown pre code {
